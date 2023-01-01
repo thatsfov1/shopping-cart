@@ -12,7 +12,7 @@ const Header = (props) => {
     return <Navbar bg="primary" variant="dark">
         <Container>
             <Navbar.Brand >
-                <NavLink to={'/'}>MY SNEAKERS</NavLink>
+                <NavLink to={'/'}>V1</NavLink>
             </Navbar.Brand>
             <Navbar.Text className="search">
                 <Form.Control
