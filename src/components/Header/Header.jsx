@@ -29,9 +29,10 @@ const Header = (props) => {
                     <Badge bg="outline-light" text="dark">{cart.length}</Badge>
                     </Dropdown.Toggle>
                     <Dropdown.Menu style={{minWidth:350}}>
-                        {cart.length > 0 ? cart.map(prod => (
+                        {cart.length > 0 ? (
                             <>
-                            <span className="cartProduct" key={prod.id}>
+                                {cart.map(prod => (
+                                    <span className="cartProduct" key={prod.id}>
                                 <div className="cartProductImg">
                                     <img src={prod.image} alt={prod.name}/>
                                 </div>
@@ -41,22 +42,23 @@ const Header = (props) => {
                                 </div>
                                 <div>
                                     <AiFillDelete
-                                    fontSize="20px"
-                                    onClick={()=> {
-                                        dispatch({
-                                            type: "REMOVE_FROM_CART",
-                                            payload:prod
-                                        })
-                                    }}
-                                    style={{cursor:"pointer"}}
+                                        fontSize="20px"
+                                        onClick={() => {
+                                            dispatch({
+                                                type: "REMOVE_FROM_CART",
+                                                payload: prod
+                                            })
+                                        }}
+                                        style={{cursor: "pointer"}}
                                     />
                                 </div>
                             </span>
-                            <NavLink to="/cart">
-                            <Button style={{width:"95%", margin:"0 10px"}}>Go to Cart</Button>
-                            </NavLink>
+                                ))}
+                                <NavLink to="/cart">
+                                    <Button style={{width:"95%", margin:"0 10px"}}>Go to Cart</Button>
+                                </NavLink>
                             </>
-                            ))
+                            )
 
                             : <span style={{padding:10}}>Cart is empty </span>
                         }

@@ -13,12 +13,16 @@ const cartReducer =(state,action) =>{
                 ...state, cart:state.cart.filter((p) => p.id !== action.payload.id)
             }
         }
+        case "CHANGE_PRODUCT_QTY":{
+            return{
+                ...state, cart:state.cart.filter(p => p.id === action.payload.id ? (p.qty = action.payload.qty) : p.qty)
+            }
+        }
 
 
         default:
             return state
     }
-
 
 }
 

@@ -7,7 +7,7 @@ import {CartState} from "../../Context/Context.jsx";
 const SingleContent = ({prod}) => {
 
     const { state:{ cart },dispatch } = CartState()
-
+    console.log(cart)
     return <div style={{margin:10}}>
         <Card style={{ width: '18rem' }} className="text-center">
             <Card.Img variant="top" src={prod.image} />
